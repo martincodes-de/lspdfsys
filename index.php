@@ -1,5 +1,7 @@
 <?php
 
+require_once("config.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -40,8 +42,8 @@
             <input class="w3-input" name="EinsatzCO" type="text" required>
           </div>
           <div class="w3-quarter">
-            <label>Einsatzdatum</label>
-            <input class="w3-input" name="EinsatzDatum" type="date" required>
+            <label>Datum und Uhrzeit</label>
+            <input class="w3-input" name="EinsatzZeitpunkt" type="datetime-local" required>
           </div>
         </div>
         <br>
