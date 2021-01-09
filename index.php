@@ -67,7 +67,7 @@
             <td>Hans Elpler</td>
             <td>01.01.1970</td>
             <td>
-              <a href="#" class="w3-btn w3-tiny w3-indigo">Durchsuchte Personen ansehen</a>
+              <a href="einsatz_ansicht.php" class="w3-btn w3-tiny w3-indigo">Durchsuchungen ansehen</a>
             </td>
           </tr>
         </table>
