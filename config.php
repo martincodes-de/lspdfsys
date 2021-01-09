@@ -3,9 +3,9 @@
 #Datenbankverbindung normal
 /*
 $db_host = "localhost";
-$db_name = "lspdmsys_db";
-$db_username = "lspdmsys_main";
-$db_userpassword = "ZJkCew6ZsKhkL#Zu5";
+$db_name = "lspdsysteme";
+$db_username = "lspdsysteme_user";
+$db_userpassword = "*5i4Ymq3";
 */
 
 #Datenbankverbindung lokal
