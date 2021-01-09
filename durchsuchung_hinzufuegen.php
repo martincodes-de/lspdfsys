@@ -1,5 +1,7 @@
 <?php
 
+require_once("config.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +15,7 @@
   <body class="">
     <div class="w3-bar w3-blue">
       <a href="index.php" class="w3-btn w3-mobile">Einsätze</a>
-      <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Person zu einem Einsatz hinzufügen</a>
+      <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Durchsuchung zu einem Einsatz hinzufügen</a>
       <button class="w3-btn w3-right">© SGT Martin Cooper, Department of Operations</button>
     </div>
 
@@ -53,7 +55,7 @@
         <div class="w3-row-padding w3-stretch">
           <div class="w3-third">
             <label>Beschlagnahmte Gegenstände</label>
-            <textarea class="w3-input w3-border w3-light-grey" name="PersonAbgenommeneGegenstaende" rows="8" cols="80" required></textarea>
+            <textarea class="w3-input w3-border w3-light-grey" name="PersonAbgenommeneGegenstaende" rows="5" cols="80" required></textarea>
           </div>
 
           <div class="w3-third">
@@ -64,12 +66,15 @@
             <label>Einsatz</label>
             <select class="w3-select w3-border w3-light-grey" name="PersonEinsatzID" required>
               <option value="" selected disabled>Wählen Sie einen Einsatz aus</option>
+              <?php foreach(alleEinsaetze() as $einsatz): ?>
+                <option value="<?php echo $einsatz['ID']; ?>"><?php echo $einsatz['Titel']; ?> (EL: <?php echo $einsatz['EL']; ?> | CO: <?php echo $einsatz['CO']; ?>) [<?php echo datumFormatieren($einsatz['Zeitpunkt'], "vonDB"); ?>]</option>
+              <?php endforeach; ?>
             </select>
           </div>
 
           <div class="w3-third">
             <label>Weitere Informationen</label>
-            <textarea name="PersonWeitereInformationen" class="w3-input w3-light-grey" rows="8" cols="80"></textarea>
+            <textarea name="PersonWeitereInformationen" class="w3-input w3-light-grey" rows="5" cols="80"></textarea>
           </div>
         </div>
         <br>

@@ -1,5 +1,7 @@
 <?php
 
+require_once("config.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -13,15 +15,17 @@
   <body class="">
     <div class="w3-bar w3-blue">
       <a href="index.php" class="w3-btn w3-mobile">Einsätze</a>
-      <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Person zu einem Einsatz hinzufügen</a>
+      <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Durchsuchung zu einem Einsatz hinzufügen</a>
       <button class="w3-btn w3-right">© SGT Martin Cooper, Department of Operations</button>
     </div>
 
     <div class="w3-container">
-      <div class="w3-panel w3-green">
-        <h3>Einsatz erstellt</h3>
-        <p>Der Einsatz wurde erstellt und wird in spätestens 2 Tagen gelöscht. Seite wird in 3 Sekunden reloadet.</p>
-      </div>
+      <?php
+        if(isset($_POST["EinsatzErstellen"])) {
+          echo erstelleEinsatz($_POST["EinsatzTitel"], $_POST["EinsatzEL"], $_POST["EinsatzCO"], $_POST["EinsatzZeitpunkt"]);
+          unset($_POST["EinsatzErstellen"]);
+        }
+      ?>
 
       <h2>Einsatz hinzufügen</h2>
       <p>Erstellen Sie einen Einsatz, um mit der Durchsuchungsorganisation zu beginnen.</p>
@@ -29,19 +33,19 @@
         <div class="w3-row-padding w3-stretch">
           <div class="w3-quarter">
             <label>Einsatztitel</label>
-            <input class="w3-input" name="EinsatzTitel" type="text" required>
+            <input class="w3-input w3-light-grey" name="EinsatzTitel" type="text" required>
           </div>
           <div class="w3-quarter">
             <label>Einsatzleiter</label>
-            <input class="w3-input" name="EinsatzEL" type="text" required>
+            <input class="w3-input w3-light-grey" name="EinsatzEL" type="text" required>
           </div>
           <div class="w3-quarter">
             <label>Commanding Officer</label>
-            <input class="w3-input" name="EinsatzCO" type="text" required>
+            <input class="w3-input w3-light-grey" name="EinsatzCO" type="text" required>
           </div>
           <div class="w3-quarter">
-            <label>Einsatzdatum</label>
-            <input class="w3-input" name="EinsatzDatum" type="date" required>
+            <label>Datum und Uhrzeit</label>
+            <input class="w3-input w3-light-grey" name="EinsatzZeitpunkt" type="datetime-local" required>
           </div>
         </div>
         <br>
@@ -53,7 +57,7 @@
         <h2>Einsatzübersicht</h2>
         <p>Hier finden Sie alle noch nicht gelöschten Einsätze.</p>
 
-        <table class="w3-table w3-striped w3-bordered w3-border">
+        <table class="w3-table w3-striped w3-bordered w3-border w3-margin-bottom">
           <tr>
             <th>Einsatztitel</th>
             <th>Einsatzleiter</th>
@@ -61,15 +65,17 @@
             <th>Einsatzdatum</th>
             <th>Aktion</th>
           </tr>
-          <tr>
-            <td>Hausbrand</td>
-            <td>Martin Cooper</td>
-            <td>Hans Elpler</td>
-            <td>01.01.1970</td>
-            <td>
-              <a href="einsatz_ansicht.php" class="w3-btn w3-tiny w3-indigo">Durchsuchungen ansehen</a>
-            </td>
-          </tr>
+          <?php foreach(alleEinsaetze() as $einsatz): ?>
+            <tr>
+              <td><?php echo $einsatz["Titel"]; ?></td>
+              <td><?php echo $einsatz["EL"]; ?></td>
+              <td><?php echo $einsatz["CO"]; ?></td>
+              <td><?php echo datumFormatieren($einsatz["Zeitpunkt"], "vonDB"); ?></td>
+              <td>
+                <a href="einsatz_ansicht.php?ID=<?php echo $einsatz['ID']; ?>" class="w3-btn w3-tiny w3-indigo">Durchsuchungen ansehen</a>
+              </td>
+            </tr>
+          <?php endforeach; ?>
         </table>
     </div>
   </body>
