@@ -3,9 +3,9 @@
 #Datenbankverbindung normal
 /*
 $db_host = "localhost";
-$db_name = "lspdmsys_db";
-$db_username = "lspdmsys_main";
-$db_userpassword = "ZJkCew6ZsKhkL#Zu5";
+$db_name = "lspdsysteme";
+$db_username = "lspdsysteme_user";
+$db_userpassword = "*5i4Ymq3";
 */
 
 #Datenbankverbindung lokal
@@ -30,11 +30,14 @@ try {
 
 # Funktionen für CRUD-Operationen
 
-require_once 'functions/einsaetze.php';
-require_once 'functions/daten.php';
+require_once 'funktionen/einsaetze.php';
+require_once 'funktionen/daten.php';
+require_once "funktionen/durchsuchungen.php";
 
-# Datum
+# Andere Einstellungen
 
+$copyright = "<small>© by SGT Martin Cooper | Department of Operations | Los Santos Police Department</small>";
 $aktuelles_datum = date("d.m.Y H:i");
+$automatische_loeschung_nach_tagen = 10;
 
 ?>
