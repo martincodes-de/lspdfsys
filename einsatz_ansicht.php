@@ -1,5 +1,12 @@
 <?php
 
+require_once("config.php");
+
+# Wenn keine ID angegeben wird, wird die Seite sofort gekillt.
+if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
+  die('<div class="w3-panel w3-red"><h3>Einsatz nicht gefunden</h3><p>Sie haben keine ID angegeben. Sie werden in 5 Sekunden weitergeleitet.</p></div><meta http-equiv="refresh" content="3; URL=index.php">');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -13,14 +20,14 @@
   <body class="">
     <div class="w3-bar w3-blue">
       <a href="index.php" class="w3-btn w3-mobile">Einsätze</a>
-      <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Person zu einem Einsatz hinzufügen</a>
+      <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Durchsuchung zu einem Einsatz hinzufügen</a>
       <button class="w3-btn w3-right">© SGT Martin Cooper, Department of Operations</button>
     </div>
 
     <div class="w3-container">
       <div class="w3-panel w3-yellow">
         <h3>Automatische Löschung</h3>
-        <p>Einsätze werden automatisch nach einer Woche gelöscht.</p>
+        <p>Einsätze werden inkls. die durchsuchten Leute nach mindestens einer Woche gelöscht.</p>
       </div>
 
       <h2>Einsatzansicht</h2>
@@ -29,19 +36,19 @@
         <div class="w3-row-padding w3-stretch">
           <div class="w3-quarter">
             <label>Einsatztitel</label>
-            <input class="w3-input" name="EinsatzTitel" type="text" readonly>
+            <input class="w3-input w3-light-grey" name="EinsatzTitel" type="text" value="<?php echo erhalteEinsatzWert($_GET["ID"], "Titel"); ?>" readonly>
           </div>
           <div class="w3-quarter">
             <label>Einsatzleiter</label>
-            <input class="w3-input" name="EinsatzEL" type="text" readonly>
+            <input class="w3-input w3-light-grey" name="EinsatzEL" type="text" value="<?php echo erhalteEinsatzWert($_GET["ID"], "EL"); ?>" readonly>
           </div>
           <div class="w3-quarter">
             <label>Commanding Officer</label>
-            <input class="w3-input" name="EinsatzCO" type="text" readonly>
+            <input class="w3-input w3-light-grey" name="EinsatzCO" type="text" value="<?php echo erhalteEinsatzWert($_GET["ID"], "CO"); ?>" readonly>
           </div>
           <div class="w3-quarter">
-            <label>Einsatzdatum</label>
-            <input class="w3-input" name="EinsatzDatum" type="date" readonly>
+            <label>Datum und Uhrzeit</label>
+            <input class="w3-input w3-light-grey" name="EinsatzZeitpunkt" type="text" value="<?php echo datumFormatieren(erhalteEinsatzWert($_GET["ID"], "Zeitpunkt"), "vonDB"); ?>" readonly>
           </div>
         </div>
       </form>
