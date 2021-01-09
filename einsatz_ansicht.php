@@ -13,7 +13,8 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
 <html lang="de" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Los Santos Police Department - Frisk System: Einsatzansicht | © by Martin Cooper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Los Santos Police Department - Frisk System: Einsatzansicht | <?php echo $copyright; ?></title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
@@ -21,13 +22,13 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
     <div class="w3-bar w3-blue">
       <a href="index.php" class="w3-btn w3-mobile">Einsätze</a>
       <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Durchsuchung zu einem Einsatz hinzufügen</a>
-      <button class="w3-btn w3-right">© SGT Martin Cooper, Department of Operations</button>
+      <button class="w3-btn w3-right"><?php echo $copyright; ?></button>
     </div>
 
     <div class="w3-container">
       <div class="w3-panel w3-yellow">
         <h3>Automatische Löschung</h3>
-        <p>Einsätze werden inkls. die durchsuchten Leute nach mindestens einer Woche gelöscht.</p>
+        <p>Einsätze werden inkls. die durchsuchten Leute nach mindestens <?php echo $automatische_loeschung_nach_tagen; ?> Tagen gelöscht.</p>
       </div>
 
       <h2>Einsatzansicht</h2>
@@ -58,27 +59,31 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
         <h2>Durchsuchungen</h2>
         <p>Hier finden Sie alle durchsuchten Personen und deren Informationen.</p>
 
-        <table class="w3-table w3-striped w3-bordered w3-border">
-          <tr>
-            <th>Name</th>
-            <th>ID</th>
-            <th>Durchsuchender Officer</th>
-            <th>Beschlagnahmte Gegenstände</th>
-            <th>Weitere Informationen</th>
-            <th>Aktion</th>
-          </tr>
-          <tr>
-            <td>Rainer Zufall</td>
-            <td>107</td>
-            <td>Hans Elpler</td>
-            <td>1x Sesamkörner</td>
-            <td>Keine weiteren Informationen.</td>
-            <td>
-              <a href="https://sm.mashable.com/t/mashable_sea/photo/default/harith-iskander_jtkz.960.jpg" target="_blank" class="w3-btn w3-tiny w3-indigo">Foto der Person aufrufen</a>
-              <a href="https://images.gutefrage.net/media/fragen/bilder/auf-meinem-bett-sowas-wie-sesamkoerner-sind-das-insekteneier/0_original.jpg?v=1428703575000" target="_blank" class="w3-btn w3-tiny w3-indigo">Beweisfoto der abgenommenen Gegenstände aufrufen</a>
-            </td>
-          </tr>
-        </table>
+        <div class="w3-responsive">
+          <table class="w3-table w3-striped w3-bordered w3-border">
+            <tr>
+              <th>Name</th>
+              <th>ID</th>
+              <th>Durchsuchender Officer</th>
+              <th>Beschlagnahmte Gegenstände</th>
+              <th>Weitere Informationen</th>
+              <th>Aktion</th>
+            </tr>
+            <?php foreach(alleDurchsuchungen($_GET["ID"]) as $durchsuchung): ?>
+              <tr>
+                <td><?php echo $durchsuchung["PersonName"]; ?></td>
+                <td><?php echo $durchsuchung["PersonID"]; ?></td>
+                <td><?php echo $durchsuchung["DurchsuchenderOfficer"]; ?></td>
+                <td><?php echo nl2br($durchsuchung["BeschlagnahmteGegenstaende"]); ?></td>
+                <td><?php echo nl2br($durchsuchung["WeitereInformationen"]); ?></td>
+                <td>
+                  <a href="<?php echo $durchsuchung['PersonFotoURL']; ?>" target="_blank" class="w3-btn w3-tiny w3-indigo">Foto der Person aufrufen</a>
+                  <a href="<?php echo $durchsuchung['BeschlagnahmteGegenstaendeFotoURL']; ?>" target="_blank" class="w3-btn w3-tiny w3-indigo">Beweisfoto der abgenommenen Gegenstände aufrufen</a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </table>
+        </div>
     </div>
   </body>
 </html>

@@ -3,6 +3,7 @@
 function erstelleEinsatz($Titel, $EL, $CO, $Zeitpunkt) { #Einsatz erstellen
 
   global $db;
+  global $automatische_loeschung_nach_tagen;
 
   $stmt = $db->prepare("INSERT INTO lspd_einsaetze (Titel, EL, CO, Zeitpunkt) VALUES (:titel, :el, :co, :zeitpunkt)");
   $stmt->execute([
@@ -12,7 +13,7 @@ function erstelleEinsatz($Titel, $EL, $CO, $Zeitpunkt) { #Einsatz erstellen
     "zeitpunkt" => datumFormatieren($Zeitpunkt, "fürDB")
   ]);
 
-  return '<div class="w3-panel w3-green"><h3>Einsatz erstellt</h3><p>Der Einsatz wurde erstellt und wird in mindestens 7 Tagen gelöscht. Seite wird in 3 Sekunden reloadet.</p></div><meta http-equiv="refresh" content="3">';
+  return '<div class="w3-panel w3-green"><h3>Einsatz erstellt</h3><p>Der Einsatz wurde erstellt. Seite wird in 3 Sekunden reloadet.</p></div><meta http-equiv="refresh" content="3">';
 
 }
 

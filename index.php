@@ -8,7 +8,8 @@ require_once("config.php");
 <html lang="de" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Los Santos Police Department - Frisk System: Einsatz hinzufügen | © by Martin Cooper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Los Santos Police Department - Frisk System: Einsatz hinzufügen | <?php echo $copyright; ?></title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
@@ -16,7 +17,7 @@ require_once("config.php");
     <div class="w3-bar w3-blue">
       <a href="index.php" class="w3-btn w3-mobile">Einsätze</a>
       <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Durchsuchung zu einem Einsatz hinzufügen</a>
-      <button class="w3-btn w3-right">© SGT Martin Cooper, Department of Operations</button>
+      <button class="w3-btn w3-right"><?php echo $copyright; ?></button>
     </div>
 
     <div class="w3-container">
@@ -56,27 +57,29 @@ require_once("config.php");
     <div class="w3-container">
         <h2>Einsatzübersicht</h2>
         <p>Hier finden Sie alle noch nicht gelöschten Einsätze.</p>
-
-        <table class="w3-table w3-striped w3-bordered w3-border w3-margin-bottom">
-          <tr>
-            <th>Einsatztitel</th>
-            <th>Einsatzleiter</th>
-            <th>Commanding Officer</th>
-            <th>Einsatzdatum</th>
-            <th>Aktion</th>
-          </tr>
-          <?php foreach(alleEinsaetze() as $einsatz): ?>
+        
+        <div class="w3-responsive">
+          <table class="w3-table w3-striped w3-bordered w3-border w3-margin-bottom">
             <tr>
-              <td><?php echo $einsatz["Titel"]; ?></td>
-              <td><?php echo $einsatz["EL"]; ?></td>
-              <td><?php echo $einsatz["CO"]; ?></td>
-              <td><?php echo datumFormatieren($einsatz["Zeitpunkt"], "vonDB"); ?></td>
-              <td>
-                <a href="einsatz_ansicht.php?ID=<?php echo $einsatz['ID']; ?>" class="w3-btn w3-tiny w3-indigo">Durchsuchungen ansehen</a>
-              </td>
+              <th>Einsatztitel</th>
+              <th>Einsatzleiter</th>
+              <th>Commanding Officer</th>
+              <th>Einsatzdatum</th>
+              <th>Aktion</th>
             </tr>
-          <?php endforeach; ?>
-        </table>
+            <?php foreach(alleEinsaetze() as $einsatz): ?>
+              <tr>
+                <td><?php echo $einsatz["Titel"]; ?></td>
+                <td><?php echo $einsatz["EL"]; ?></td>
+                <td><?php echo $einsatz["CO"]; ?></td>
+                <td><?php echo datumFormatieren($einsatz["Zeitpunkt"], "vonDB"); ?></td>
+                <td>
+                  <a href="einsatz_ansicht.php?ID=<?php echo $einsatz['ID']; ?>" class="w3-btn w3-tiny w3-indigo">Durchsuchungen ansehen</a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </table>
+        </div>
     </div>
   </body>
 </html>

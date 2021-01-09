@@ -8,7 +8,8 @@ require_once("config.php");
 <html lang="de" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Los Santos Police Department - Frisk System: Durchsuchung hinzufügen | © by Martin Cooper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Los Santos Police Department - Frisk System: Durchsuchung hinzufügen | <?php echo $copyright; ?></title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
@@ -16,14 +17,16 @@ require_once("config.php");
     <div class="w3-bar w3-blue">
       <a href="index.php" class="w3-btn w3-mobile">Einsätze</a>
       <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Durchsuchung zu einem Einsatz hinzufügen</a>
-      <button class="w3-btn w3-right">© SGT Martin Cooper, Department of Operations</button>
+      <button class="w3-btn w3-right"><?php echo $copyright; ?></button>
     </div>
 
     <div class="w3-container">
-      <div class="w3-panel w3-green">
-        <h3>Einsatz erstellt</h3>
-        <p>Der Einsatz wurde erstellt und wird in spätestens 2 Tagen gelöscht. Seite wird in 3 Sekunden reloadet.</p>
-      </div>
+      <?php
+        if(isset($_POST["DurchsuchungErstellen"])) {
+          echo durchsuchungHinzufuegen($_POST["PersonEinsatzID"], $_POST["PersonName"], $_POST["PersonID"], $_POST["PersonFotoURL"], $_POST["PersonDurchsuchenderOfficer"], $_POST["PersonBeschlagnahmteGegenstaende"], $_POST["PersonBeschlagnahmteGegenstaendeFotoURL"], $_POST["PersonWeitereInformationen"]);
+          unset($_POST["DurchsuchungErstellen"]);
+        }
+      ?>
 
       <h2>Durchsuchung hinzufügen</h2>
       <p>Fügen Sie eine durchsuchte Person zu einem Einsatz hinzu.</p>
@@ -55,12 +58,12 @@ require_once("config.php");
         <div class="w3-row-padding w3-stretch">
           <div class="w3-third">
             <label>Beschlagnahmte Gegenstände</label>
-            <textarea class="w3-input w3-border w3-light-grey" name="PersonAbgenommeneGegenstaende" rows="5" cols="80" required></textarea>
+            <textarea class="w3-input w3-border w3-light-grey" name="PersonBeschlagnahmteGegenstaende" rows="5" cols="80" required></textarea>
           </div>
 
           <div class="w3-third">
             <label>Foto der beschlagnahmten Gegenstände</label>
-            <input class="w3-input w3-border w3-light-grey" name="PersonAbgenommeneGegenstaendeFotoURL" type="url" required>
+            <input class="w3-input w3-border w3-light-grey" name="PersonBeschlagnahmteGegenstaendeFotoURL" type="url" required>
             <br>
 
             <label>Einsatz</label>
