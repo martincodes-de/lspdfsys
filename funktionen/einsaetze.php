@@ -69,7 +69,7 @@ function loescheEinsatzManuell($ID) {
     "id" => $ID
   ]);
 
-  return '<div class="w3-panel w3-green"><h3>Einsatz gelöscht</h3><p>Der Einsatz wurde gelöscht. Seite wird in 3 Sekunden reloadet.</p></div><meta http-equiv="refresh" content="3">';
+  return '<div class="w3-panel w3-green"><h3>Einsatz gelöscht</h3><p>Der Einsatz wurde gelöscht.</p></div>';
 
 }
 

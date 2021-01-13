@@ -37,7 +37,7 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
         }
       ?>
 
-      <h2>Einsatz löschen</h2>
+      <h2>Einsatz "<?php echo erhalteEinsatzWert($_GET["ID"], "Titel"); ?>" vom <?php echo datumFormatieren(erhalteEinsatzWert($_GET["ID"], "Zeitpunkt"), "vonDB"); ?> löschen</h2>
       <p>Löschen Sie Einsätze und deren Daten, die nicht mehr benötigt werden. Dies kann nur von Offiziers- und Leitungsmitgliedern durchgeführt werden und benötigt zur Ausführung ein Passwort.</p>
       <form class="w3-margin-bottom" method="post">
         <label>Passwort</label>
