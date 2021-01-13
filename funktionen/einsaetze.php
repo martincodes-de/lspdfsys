@@ -60,4 +60,17 @@ function erhalteEinsatzWert($ID, $Spalte = "ID") {
 
 }
 
+function loescheEinsatzManuell($ID) {
+
+  GLOBAL $db;
+
+  $stmt = $db->prepare("DELETE FROM lspd_einsaetze WHERE ID = :id");
+  $stmt->execute([
+    "id" => $ID
+  ]);
+
+  return '<div class="w3-panel w3-green"><h3>Einsatz gelöscht</h3><p>Der Einsatz wurde gelöscht. Seite wird in 3 Sekunden reloadet.</p></div><meta http-equiv="refresh" content="3">';
+
+}
+
 ?>

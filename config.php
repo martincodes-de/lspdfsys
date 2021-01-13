@@ -39,7 +39,7 @@ require_once "funktionen/durchsuchungen.php";
 
 $copyright = "<small>LSPDFSYS © by SGT Martin Cooper | Department of Operations | Los Santos Police Department</small>";
 $aktuelles_datum = date("d.m.Y H:i");
-$automatische_loeschung_nach_tagen = 10;
+$automatische_loeschung_nach_tagen = 90;
 $einsatz_loeschen_passwort = "!e1nsatz#Cha0s";
 
 ?>
