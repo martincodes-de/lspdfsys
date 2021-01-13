@@ -1,6 +1,7 @@
 <?php
 
 #Datenbankverbindung normal
+
 /*
 $db_host = "localhost";
 $db_name = "lspdsysteme";
@@ -10,11 +11,11 @@ $db_userpassword = "*5i4Ymq3";
 
 #Datenbankverbindung lokal
 
+
 $db_host = "localhost";
 $db_name = "lspdfsys";
 $db_username = "root";
 $db_userpassword = "";
-
 
 $db_charset = "utf8";
 
@@ -36,8 +37,9 @@ require_once "funktionen/durchsuchungen.php";
 
 # Andere Einstellungen
 
-$copyright = "<small>© by SGT Martin Cooper | Department of Operations | Los Santos Police Department</small>";
+$copyright = "<small>LSPDFSYS © by SGT Martin Cooper | Department of Operations | Los Santos Police Department</small>";
 $aktuelles_datum = date("d.m.Y H:i");
-$automatische_loeschung_nach_tagen = 10;
+$automatische_loeschung_nach_tagen = 90;
+$einsatz_loeschen_passwort = "!e1nsatz#Cha0s";
 
 ?>
