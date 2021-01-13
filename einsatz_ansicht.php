@@ -14,7 +14,9 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Los Santos Police Department - Frisk System: Einsatzansicht | <?php echo $copyright; ?></title>
+	<meta http-equiv=“expires“ content=“0″>
+	<meta http-equiv="Cache-Control" content="no-store" />
+    <title>Los Santos Police Department - Frisk System: Einsatzansicht</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
@@ -22,13 +24,12 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
     <div class="w3-bar w3-blue">
       <a href="index.php" class="w3-btn w3-mobile">Einsätze</a>
       <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Durchsuchung zu einem Einsatz hinzufügen</a>
-      <button class="w3-btn w3-right"><?php echo $copyright; ?></button>
     </div>
 
     <div class="w3-container">
       <div class="w3-panel w3-yellow">
         <h3>Automatische Löschung</h3>
-        <p>Einsätze werden inkls. die durchsuchten Leute nach mindestens <?php echo $automatische_loeschung_nach_tagen; ?> Tagen gelöscht.</p>
+        <p>Einsätze werden inkl. die durchsuchten Personen nach mindestens <?php echo $automatische_loeschung_nach_tagen; ?> Tagen gelöscht.</p>
       </div>
 
       <h2>Einsatzansicht</h2>
@@ -77,13 +78,17 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
                 <td><?php echo nl2br($durchsuchung["BeschlagnahmteGegenstaende"]); ?></td>
                 <td><?php echo nl2br($durchsuchung["WeitereInformationen"]); ?></td>
                 <td>
-                  <a href="<?php echo $durchsuchung['PersonFotoURL']; ?>" target="_blank" class="w3-btn w3-tiny w3-indigo">Foto der Person aufrufen</a>
-                  <a href="<?php echo $durchsuchung['BeschlagnahmteGegenstaendeFotoURL']; ?>" target="_blank" class="w3-btn w3-tiny w3-indigo">Beweisfoto der abgenommenen Gegenstände aufrufen</a>
+                  <a href="<?php echo $durchsuchung['PersonFotoURL']; ?>" target="_blank" class="w3-btn w3-small w3-indigo">Foto der Person aufrufen</a>
+                  <a href="<?php echo $durchsuchung['BeschlagnahmteGegenstaendeFotoURL']; ?>" target="_blank" class="w3-btn w3-small w3-indigo">Beweisfoto der abgenommenen Gegenstände aufrufen</a>
                 </td>
               </tr>
             <?php endforeach; ?>
           </table>
         </div>
     </div>
+
+	<div class="w3-auto w3-margin-top w3-margin-bottom">
+		<center><?php echo $copyright; ?></center>
+	</div>
   </body>
 </html>

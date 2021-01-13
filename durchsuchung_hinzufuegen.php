@@ -9,6 +9,8 @@ require_once("config.php");
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv=“expires“ content=“0″>
+	<meta http-equiv="Cache-Control" content="no-store" />
     <title>Los Santos Police Department - Frisk System: Durchsuchung hinzufügen | <?php echo $copyright; ?></title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
@@ -17,7 +19,6 @@ require_once("config.php");
     <div class="w3-bar w3-blue">
       <a href="index.php" class="w3-btn w3-mobile">Einsätze</a>
       <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Durchsuchung zu einem Einsatz hinzufügen</a>
-      <button class="w3-btn w3-right"><?php echo $copyright; ?></button>
     </div>
 
     <div class="w3-container">
@@ -33,12 +34,12 @@ require_once("config.php");
       <form class="w3-margin-bottom" method="post">
         <div class="w3-row-padding w3-stretch">
           <div class="w3-quarter">
-            <label>Name</label>
+            <label>Name der Person</label>
             <input class="w3-input w3-border w3-light-grey" name="PersonName" type="text" required>
           </div>
 
           <div class="w3-quarter">
-            <label>ID</label>
+            <label>ID der Person</label>
             <input class="w3-input w3-border w3-light-grey" name="PersonID" type="number" required>
           </div>
 
@@ -84,5 +85,9 @@ require_once("config.php");
         <button class="w3-btn w3-block w3-green" type="submit" name="DurchsuchungErstellen">Durchsuchung hinzufügen</button>
       </form>
     </div>
+
+	<div class="w3-auto w3-margin-top w3-margin-bottom">
+		<center><?php echo $copyright; ?></center>
+	</div>
   </body>
 </html>

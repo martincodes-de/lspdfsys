@@ -9,7 +9,9 @@ require_once("config.php");
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Los Santos Police Department - Frisk System: Einsatz hinzufügen | <?php echo $copyright; ?></title>
+	<meta http-equiv=“expires“ content=“0″>
+	<meta http-equiv="Cache-Control" content="no-store" />
+    <title>Los Santos Police Department - Frisk System: Einsatz hinzufügen</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
@@ -17,7 +19,6 @@ require_once("config.php");
     <div class="w3-bar w3-blue">
       <a href="index.php" class="w3-btn w3-mobile">Einsätze</a>
       <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Durchsuchung zu einem Einsatz hinzufügen</a>
-      <button class="w3-btn w3-right"><?php echo $copyright; ?></button>
     </div>
 
     <div class="w3-container">
@@ -57,7 +58,7 @@ require_once("config.php");
     <div class="w3-container">
         <h2>Einsatzübersicht</h2>
         <p>Hier finden Sie alle noch nicht gelöschten Einsätze.</p>
-        
+
         <div class="w3-responsive">
           <table class="w3-table w3-striped w3-bordered w3-border w3-margin-bottom">
             <tr>
@@ -74,12 +75,17 @@ require_once("config.php");
                 <td><?php echo $einsatz["CO"]; ?></td>
                 <td><?php echo datumFormatieren($einsatz["Zeitpunkt"], "vonDB"); ?></td>
                 <td>
-                  <a href="einsatz_ansicht.php?ID=<?php echo $einsatz['ID']; ?>" class="w3-btn w3-tiny w3-indigo">Durchsuchungen ansehen</a>
+                  <a href="einsatz_ansicht.php?ID=<?php echo $einsatz['ID']; ?>" class="w3-btn w3-small w3-indigo">Durchsuchungen ansehen</a>
+                  <a href="einsatz_loeschen.php?ID=<?php echo $einsatz['ID']; ?>" class="w3-btn w3-small w3-red">Einsatz löschen</a>
                 </td>
               </tr>
             <?php endforeach; ?>
           </table>
         </div>
     </div>
+
+	<div class="w3-auto w3-margin-top w3-margin-bottom">
+		<center><?php echo $copyright; ?></center>
+	</div>
   </body>
 </html>
