@@ -2,20 +2,21 @@
 
 #Datenbankverbindung normal
 
-/*
+
 $db_host = "localhost";
-$db_name = "lspdsysteme";
-$db_username = "lspdsysteme_user";
-$db_userpassword = "*5i4Ymq3";
-*/
+$db_name = "zgawywpu_lspd_kleine_systeme";
+$db_username = "zgawywpu_lspd_kleine_systeme_user";
+$db_userpassword = "fs8h61N$";
+
 
 #Datenbankverbindung lokal
 
-
+/*
 $db_host = "localhost";
 $db_name = "lspdfsys";
 $db_username = "root";
 $db_userpassword = "";
+*/
 
 $db_charset = "utf8";
 
