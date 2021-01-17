@@ -4,7 +4,7 @@ function durchsuchungHinzufuegen($EinsatzID, $PersonName, $PersonID, $PersonFoto
 
   global $db;
 
-  $stmt = $db->prepare("INSERT INTO lspd_durchsuchungen (EinsatzID, PersonName, PersonID, PersonFotoURL, DurchsuchenderOfficer, BeschlagnahmteGegenstaende, BeschlagnahmteGegenstaendeFotoURL, WeitereInformationen)
+  $stmt = $db->prepare("INSERT INTO lspdfsys_durchsuchungen (EinsatzID, PersonName, PersonID, PersonFotoURL, DurchsuchenderOfficer, BeschlagnahmteGegenstaende, BeschlagnahmteGegenstaendeFotoURL, WeitereInformationen)
                         VALUES (:einsatzid, :personname, :personid, :personfotourl, :durchsuchenderofficer, :beschlagnahmtegegenstaende, :beschlagnahmtegegenstaendefotourl, :weitereinformationen)");
 
   $stmt->execute([
@@ -26,7 +26,7 @@ function alleDurchsuchungen($EinsatzID) {
 
   global $db;
 
-  $stmt = $db->prepare("SELECT * FROM lspd_durchsuchungen WHERE EinsatzID = :einsatzid");
+  $stmt = $db->prepare("SELECT * FROM lspdfsys_durchsuchungen WHERE EinsatzID = :einsatzid");
   $stmt->execute([
     "einsatzid" => $EinsatzID
   ]);
