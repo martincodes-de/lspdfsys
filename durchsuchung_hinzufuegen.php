@@ -73,7 +73,8 @@ require_once("config.php");
               function keineBeschlagnahmtenGegenstaende() {
                 if (document.getElementsByName("PersonBeschlagnahmteGegenstaende")[0].value == "") {
                   document.getElementsByName("PersonBeschlagnahmteGegenstaendeFotoURL")[0].value = "https://i.imgur.com/fucjPMv.png";
-                  alert("Es wurde ein Platzhalterlink eingefügt.");
+                  document.getElementsByName("PersonBeschlagnahmteGegenstaende")[0].value = "Keine abgenommenen Gegenstände";
+                  alert("Es wurden Platzhalter eingefügt.");
                 } else {
                   alert("Es kann kein Platzhalterlink eingefügt werden, da das Feld mit den beschlagnahmten Gegenständen nicht leer ist.");
                 }
