@@ -5,7 +5,7 @@ function erstelleEinsatz($Titel, $EL, $CO, $Zeitpunkt) { #Einsatz erstellen
   global $db;
   global $automatische_loeschung_nach_tagen;
 
-  $stmt = $db->prepare("INSERT INTO lspdfsys_einsaetze (Titel, EL, CO, Zeitpunkt) VALUES (:titel, :el, :co, :zeitpunkt)");
+  $stmt = $db->prepare("INSERT INTO lspd_einsaetze (Titel, EL, CO, Zeitpunkt) VALUES (:titel, :el, :co, :zeitpunkt)");
   $stmt->execute([
     "titel" => $Titel,
     "el" => $EL,
@@ -21,7 +21,7 @@ function alleEinsaetze() { #Alle Einsätze auflisten
 
   global $db;
 
-  $stmt = $db->prepare("SELECT * FROM lspdfsys_einsaetze ORDER BY Zeitpunkt DESC");
+  $stmt = $db->prepare("SELECT * FROM lspd_einsaetze ORDER BY Zeitpunkt DESC");
   $stmt->execute();
 
   return $stmt->fetchAll();
@@ -41,7 +41,7 @@ function erhalteEinsatzWert($ID, $Spalte = "ID") {
   ];
 
   if (in_array($Spalte, $erlaubte_spalten)) {
-    $stmt = $db->prepare("SELECT $Spalte FROM lspdfsys_einsaetze WHERE ID = :id");
+    $stmt = $db->prepare("SELECT $Spalte FROM lspd_einsaetze WHERE ID = :id");
     $stmt->execute([
       "id" => $ID
     ]);
@@ -64,7 +64,7 @@ function loescheEinsatzManuell($ID) {
 
   GLOBAL $db;
 
-  $stmt = $db->prepare("DELETE FROM lspdfsys_einsaetze WHERE ID = :id");
+  $stmt = $db->prepare("DELETE FROM lspd_einsaetze WHERE ID = :id");
   $stmt->execute([
     "id" => $ID
   ]);
