@@ -4,9 +4,9 @@
 
 
 $db_host = "localhost";
-$db_name = "zgawywpu_lspd_kleine_systeme";
-$db_username = "zgawywpu_lspd_kleine_systeme_user";
-$db_userpassword = "fs8h61N$";
+$db_name = "lspdsysteme";
+$db_username = "lspdsysteme_user";
+$db_userpassword = "vG~948#ip";
 
 
 #Datenbankverbindung lokal
