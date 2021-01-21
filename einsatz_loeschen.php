@@ -21,10 +21,8 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
   </head>
 
   <body class="">
-    <div class="w3-bar w3-blue">
-      <a href="index.php" class="w3-btn w3-mobile">Einsätze</a>
-      <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Durchsuchung zu einem Einsatz hinzufügen</a>
-    </div>
+    <!-- Menüeinbindung -->
+    <?php require_once("seitenelemente/menu.php"); ?>
 
     <div class="w3-container">
       <?php
@@ -76,8 +74,7 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
         </div>
     </div>
 
-	<div class="w3-auto w3-margin-top w3-margin-bottom">
-		<center><?php echo $copyright; ?></center>
-	</div>
+    <!-- Footereinbindung -->
+    <?php require_once("seitenelemente/footer.php"); ?>
   </body>
 </html>

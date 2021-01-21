@@ -16,10 +16,8 @@ require_once("config.php");
   </head>
 
   <body class="">
-    <div class="w3-bar w3-blue">
-      <a href="index.php" class="w3-btn w3-mobile">Einsätze</a>
-      <a href="durchsuchung_hinzufuegen.php" class="w3-btn w3-mobile">Durchsuchung zu einem Einsatz hinzufügen</a>
-    </div>
+    <!-- Menüeinbindung -->
+    <?php require_once("seitenelemente/menu.php"); ?>
 
     <div class="w3-container">
       <?php
@@ -35,15 +33,15 @@ require_once("config.php");
         <div class="w3-row-padding w3-stretch">
           <div class="w3-quarter">
             <label>Einsatztitel</label>
-            <input class="w3-input w3-light-grey" name="EinsatzTitel" type="text" required>
+            <input class="w3-input w3-light-grey" name="EinsatzTitel" type="text" placeholder="10-71 Easthwy. Höhe JVA" required>
           </div>
           <div class="w3-quarter">
             <label>Einsatzleiter</label>
-            <input class="w3-input w3-light-grey" name="EinsatzEL" type="text" required>
+            <input class="w3-input w3-light-grey" name="EinsatzEL" type="text" placeholder="PD 21 Elpler" required>
           </div>
           <div class="w3-quarter">
             <label>Commanding Officer</label>
-            <input class="w3-input w3-light-grey" name="EinsatzCO" type="text" required>
+            <input class="w3-input w3-light-grey" name="EinsatzCO" type="text" placeholder="PD 65 Cooper" required>
           </div>
           <div class="w3-quarter">
             <label>Datum und Uhrzeit</label>
@@ -70,13 +68,13 @@ require_once("config.php");
             </tr>
             <?php foreach(alleEinsaetze() as $einsatz): ?>
               <tr>
-                <td><?php echo $einsatz["Titel"]; ?></td>
-                <td><?php echo $einsatz["EL"]; ?></td>
-                <td><?php echo $einsatz["CO"]; ?></td>
-                <td><?php echo datumFormatieren($einsatz["Zeitpunkt"], "vonDB"); ?></td>
+                <td><?php echo htmlspecialchars($einsatz["Titel"]); ?></td>
+                <td><?php echo htmlspecialchars($einsatz["EL"]); ?></td>
+                <td><?php echo htmlspecialchars($einsatz["CO"]); ?></td>
+                <td><?php echo htmlspecialchars(datumFormatieren($einsatz["Zeitpunkt"], "vonDB")); ?></td>
                 <td>
-                  <a href="einsatz_ansicht.php?ID=<?php echo $einsatz['ID']; ?>" class="w3-btn w3-small w3-indigo">Durchsuchungen ansehen</a>
-                  <a href="einsatz_loeschen.php?ID=<?php echo $einsatz['ID']; ?>" class="w3-btn w3-small w3-red">Einsatz löschen</a>
+                  <a href="einsatz_ansicht.php?ID=<?php echo htmlspecialchars($einsatz['ID']); ?>" class="w3-btn w3-small w3-indigo">Durchsuchungen ansehen</a>
+                  <a href="einsatz_loeschen.php?ID=<?php echo htmlspecialchars($einsatz['ID']); ?>" class="w3-btn w3-small w3-red">Einsatz löschen</a>
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -84,8 +82,7 @@ require_once("config.php");
         </div>
     </div>
 
-	<div class="w3-auto w3-margin-top w3-margin-bottom">
-		<center><?php echo $copyright; ?></center>
-	</div>
+    <!-- Footereinbindung -->
+    <?php require_once("seitenelemente/footer.php"); ?>
   </body>
 </html>
