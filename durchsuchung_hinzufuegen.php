@@ -9,9 +9,9 @@ require_once("config.php");
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv=“expires“ content=“0″>
-	<meta http-equiv="Cache-Control" content="no-store" />
-    <title>Los Santos Police Department - Frisk System: Durchsuchung hinzufügen | <?php echo $copyright; ?></title>
+	  <meta http-equiv=“expires“ content=“0″>
+	  <meta http-equiv="Cache-Control" content="no-store" />
+    <title>Los Santos Police Department - Frisk System: Durchsuchung hinzufügen</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
@@ -74,7 +74,7 @@ require_once("config.php");
                 if (document.getElementsByName("PersonBeschlagnahmteGegenstaende")[0].value == "") {
                   document.getElementsByName("PersonBeschlagnahmteGegenstaendeFotoURL")[0].value = "https://i.imgur.com/fucjPMv.png";
                   document.getElementsByName("PersonBeschlagnahmteGegenstaende")[0].value = "Keine abgenommenen Gegenstände";
-                  alert("Es wurden Platzhalter eingefügt.");
+                  //alert("Es wurden Platzhalter eingefügt."); Wurde als Geschwinidgkeitsverlangsamung empfunden
                 } else {
                   alert("Es kann kein Platzhalterlink eingefügt werden, da das Feld mit den beschlagnahmten Gegenständen nicht leer ist.");
                 }
