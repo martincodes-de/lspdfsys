@@ -21,9 +21,9 @@ require_once("config.php");
 
     <div class="w3-container">
       <?php
-        if(isset($_POST["DurchsuchungErstellen"])) {
-          echo durchsuchungHinzufuegen($_POST["PersonEinsatzID"], $_POST["PersonName"], $_POST["PersonID"], $_POST["PersonFotoURL"], $_POST["PersonDurchsuchenderOfficer"], $_POST["PersonBeschlagnahmteGegenstaende"], $_POST["PersonBeschlagnahmteGegenstaendeFotoURL"], $_POST["PersonWeitereInformationen"]);
-          unset($_POST["DurchsuchungErstellen"]);
+        if(isset($_POST["NotizErstellen"])) {
+          echo notizHinzufuegen($_POST["NotizEinsatzID"], $_POST["NotizArt"], $_POST["NotizAutor"], $_POST["NotizInhalt"], $_POST["NotizAnhangURL"], $_POST["NotizZeitpunkt"]);
+          unset($_POST["NotizErstellen"]);
         }
       ?>
 
@@ -47,7 +47,7 @@ require_once("config.php");
             <br><br>
 
             <label>Police Officer</label>
-            <input class="w3-input w3-border w3-light-grey" name="NotizAutor" type="text" placeholder="PD 10 Levin" required>
+            <input class="w3-input w3-border w3-light-grey" name="NotizAutor" type="text" placeholder="PD 23 Saltmueller" required>
 
             <br>
 
@@ -58,7 +58,7 @@ require_once("config.php");
             <br><br>
 
             <label>AnhangURL</label>
-            <input class="w3-input w3-border w3-light-grey" name="NotizAutor" type="url" placeholder="">
+            <input class="w3-input w3-border w3-light-grey" name="NotizAnhangURL" type="url" placeholder="">
             <span class="w3-tiny">Für Beweisfotos oder Dokumente</span>
 
             <br><br>

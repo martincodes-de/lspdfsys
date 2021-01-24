@@ -74,8 +74,8 @@ require_once("config.php");
                 <td><?php echo htmlspecialchars($einsatz["CO"]); ?></td>
                 <td><?php echo htmlspecialchars(datumFormatieren($einsatz["Zeitpunkt"], "vonDB")); ?></td>
                 <td>
-                  <a href="einsatz_ansicht.php?ID=<?php echo htmlspecialchars($einsatz['ID']); ?>" class="w3-btn w3-small w3-indigo">Durchsuchungen ansehen</a>
-                  <a href="einsatz_loeschen.php?ID=<?php echo htmlspecialchars($einsatz['ID']); ?>" class="w3-btn w3-small w3-red">Einsatz löschen</a>
+                  <a href="einsatz_ansicht.php?ID=<?php echo htmlspecialchars($einsatz['ID']); ?>" class="w3-btn w3-small w3-indigo">Ansehen</a>
+                  <a href="einsatz_loeschen.php?ID=<?php echo htmlspecialchars($einsatz['ID']); ?>" class="w3-btn w3-small w3-red">Löschen</a>
                 </td>
               </tr>
             <?php endforeach; ?>

@@ -18,7 +18,7 @@ function durchsuchungHinzufuegen($EinsatzID, $PersonName, $PersonID, $PersonFoto
     "weitereinformationen" => $PersonWeitereInformationen
   ]);
 
-  return '<div class="w3-panel w3-green"><h3>Durchsuchung hinzugefügt</h3><p>Die Durchsuchung wurde zum Einsatz hinzugefügt und wird in spätestens 10 Tagen gelöscht. Seite wird in 3 Sekunden reloadet.</p></div><meta http-equiv="refresh" content="3">';
+  return '<div class="w3-panel w3-green"><h3>Durchsuchung hinzugefügt</h3><p>Die Durchsuchung wurde zum Einsatz hinzugefügt. Seite wird in 3 Sekunden reloadet.</p></div><meta http-equiv="refresh" content="3">';
 
 }
 

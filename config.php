@@ -35,6 +35,7 @@ try {
 require_once 'funktionen/einsaetze.php';
 require_once 'funktionen/daten.php';
 require_once "funktionen/durchsuchungen.php";
+require_once "funktionen/notizen.php";
 
 # Andere Einstellungen
 
