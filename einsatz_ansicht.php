@@ -36,19 +36,19 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
         <div class="w3-row-padding w3-stretch">
           <div class="w3-quarter">
             <label>Einsatztitel</label>
-            <input class="w3-input w3-light-grey" name="EinsatzTitel" type="text" value="<?php echo htmlspecialchars(erhalteEinsatzWert($_GET["ID"], "Titel")); ?>" readonly>
+            <input class="w3-input w3-border w3-light-grey" name="EinsatzTitel" type="text" value="<?php echo htmlspecialchars(erhalteEinsatzWert($_GET["ID"], "Titel")); ?>" readonly>
           </div>
           <div class="w3-quarter">
             <label>Einsatzleiter</label>
-            <input class="w3-input w3-light-grey" name="EinsatzEL" type="text" value="<?php echo htmlspecialchars(erhalteEinsatzWert($_GET["ID"], "EL")); ?>" readonly>
+            <input class="w3-input w3-border w3-light-grey" name="EinsatzEL" type="text" value="<?php echo htmlspecialchars(erhalteEinsatzWert($_GET["ID"], "EL")); ?>" readonly>
           </div>
           <div class="w3-quarter">
             <label>Commanding Officer</label>
-            <input class="w3-input w3-light-grey" name="EinsatzCO" type="text" value="<?php echo htmlspecialchars(erhalteEinsatzWert($_GET["ID"], "CO")); ?>" readonly>
+            <input class="w3-input w3-border w3-light-grey" name="EinsatzCO" type="text" value="<?php echo htmlspecialchars(erhalteEinsatzWert($_GET["ID"], "CO")); ?>" readonly>
           </div>
           <div class="w3-quarter">
             <label>Datum und Uhrzeit</label>
-            <input class="w3-input w3-light-grey" name="EinsatzZeitpunkt" type="text" value="<?php echo htmlspecialchars(datumFormatieren(erhalteEinsatzWert($_GET["ID"], "Zeitpunkt"), "vonDB")); ?>" readonly>
+            <input class="w3-input w3-border w3-light-grey" name="EinsatzZeitpunkt" type="text" value="<?php echo htmlspecialchars(datumFormatieren(erhalteEinsatzWert($_GET["ID"], "Zeitpunkt"), "vonDB")); ?>" readonly>
           </div>
         </div>
       </form>

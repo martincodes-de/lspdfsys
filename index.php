@@ -33,19 +33,19 @@ require_once("config.php");
         <div class="w3-row-padding w3-stretch">
           <div class="w3-quarter">
             <label>Einsatztitel</label>
-            <input class="w3-input w3-light-grey" name="EinsatzTitel" type="text" placeholder="10-71 Easthwy. Höhe JVA" required>
+            <input class="w3-input w3-border w3-light-grey" name="EinsatzTitel" type="text" placeholder="10-71 Easthwy. Höhe JVA" required>
           </div>
           <div class="w3-quarter">
             <label>Einsatzleiter</label>
-            <input class="w3-input w3-light-grey" name="EinsatzEL" type="text" placeholder="PD 21 Elpler" required>
+            <input class="w3-input w3-border w3-light-grey" name="EinsatzEL" type="text" placeholder="PD 21 Elpler" required>
           </div>
           <div class="w3-quarter">
             <label>Commanding Officer</label>
-            <input class="w3-input w3-light-grey" name="EinsatzCO" type="text" placeholder="PD 65 Cooper" required>
+            <input class="w3-input w3-border w3-light-grey" name="EinsatzCO" type="text" placeholder="PD 65 Cooper" required>
           </div>
           <div class="w3-quarter">
             <label>Datum und Uhrzeit</label>
-            <input class="w3-input w3-light-grey" name="EinsatzZeitpunkt" type="datetime-local" required>
+            <input class="w3-input w3-border w3-light-grey" name="EinsatzZeitpunkt" type="datetime-local" required>
             <span class="w3-tiny">Nutzen Sie für eine saubere, korrekte Datumsformatierung das Kalender-Icon.</span>
           </div>
         </div>
