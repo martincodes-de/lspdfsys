@@ -9,9 +9,9 @@ require_once("config.php");
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv=“expires“ content=“0″>
-	<meta http-equiv="Cache-Control" content="no-store" />
-    <title>Los Santos Police Department - Frisk System: Durchsuchung hinzufügen | <?php echo $copyright; ?></title>
+	  <meta http-equiv=“expires“ content=“0″>
+	  <meta http-equiv="Cache-Control" content="no-store" />
+    <title>Los Santos Police Department - Frisk System: Durchsuchung hinzufügen</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
@@ -53,7 +53,7 @@ require_once("config.php");
 
           <div class="w3-quarter">
             <label>Durchsuchender Officer</label>
-            <input class="w3-input w3-border w3-light-grey" name="PersonDurchsuchenderOfficer" type="text" placeholder="PD 65 Mueller" required>
+            <input class="w3-input w3-border w3-light-grey" name="PersonDurchsuchenderOfficer" type="text" placeholder="PD 85 Mueller" required>
           </div>
         </div>
 
@@ -61,20 +61,20 @@ require_once("config.php");
 
         <div class="w3-row-padding w3-stretch">
           <div class="w3-third">
-            <label>Beschlagnahmte Gegenstände</label>
+            <label>Beschlagnahmte Gegenstände <span class="w3-tag w3-light-grey w3-hover-light-blue w3-tiny" onclick="keineBeschlagnahmtenGegenstaende(this)">Keine Gegenstände beschlagnahmt</span></label>
             <textarea class="w3-input w3-border w3-light-grey" name="PersonBeschlagnahmteGegenstaende" rows="5" cols="80" placeholder="two number 9s, a number 9 large, a number 6 with extra dip, a number 7, two number 45s, one with cheese, and a large soda" required></textarea>
           </div>
 
           <div class="w3-third">
-            <label>Foto der beschlagnahmten Gegenstände <span class="w3-tag w3-light-grey w3-hover-light-blue w3-tiny" onclick="keineBeschlagnahmtenGegenstaende(this)">Keine Gegenstände beschlagnahmt</span></label>
-            <input class="w3-input w3-border w3-light-grey" name="PersonBeschlagnahmteGegenstaendeFotoURL" placeholder="https://imgur.com/a/gvM0yCW" type="url" required>
+            <label>Foto der beschlagnahmten Gegenstände</label>
+            <input class="w3-input w3-border w3-light-grey" name="PersonBeschlagnahmteGegenstaendeFotoURL" placeholder="https://imgur.com/a/gvM0yCW" type="url">
 
             <script type="text/javascript">
               function keineBeschlagnahmtenGegenstaende() {
                 if (document.getElementsByName("PersonBeschlagnahmteGegenstaende")[0].value == "") {
-                  document.getElementsByName("PersonBeschlagnahmteGegenstaendeFotoURL")[0].value = "https://i.imgur.com/fucjPMv.png";
-                  document.getElementsByName("PersonBeschlagnahmteGegenstaende")[0].value = "Keine abgenommenen Gegenstände";
-                  alert("Es wurden Platzhalter eingefügt.");
+                  //document.getElementsByName("PersonBeschlagnahmteGegenstaendeFotoURL")[0].value = "https://i.imgur.com/fucjPMv.png"; Deaktiviert, da Feld nicht mehr required ist
+                  document.getElementsByName("PersonBeschlagnahmteGegenstaende")[0].value = "Keine Gegenstände beschlagnahmt";
+                  //alert("Es wurden Platzhalter eingefügt."); Wurde als Geschwinidgkeitsverlangsamung empfunden
                 } else {
                   alert("Es kann kein Platzhalterlink eingefügt werden, da das Feld mit den beschlagnahmten Gegenständen nicht leer ist.");
                 }
