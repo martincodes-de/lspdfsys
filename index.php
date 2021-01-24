@@ -46,6 +46,7 @@ require_once("config.php");
           <div class="w3-quarter">
             <label>Datum und Uhrzeit</label>
             <input class="w3-input w3-light-grey" name="EinsatzZeitpunkt" type="datetime-local" required>
+            <span class="w3-tiny">Nutzen Sie für eine saubere, korrekte Datumsformatierung das Kalender-Icon.</span>
           </div>
         </div>
         <br>
