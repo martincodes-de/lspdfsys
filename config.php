@@ -4,9 +4,9 @@
 
 
 $db_host = "localhost";
-$db_name = "lspdsysteme";
-$db_username = "lspdsysteme_user";
-$db_userpassword = "vG~948#ip";
+$db_name = "xhnwemny_lspd_kleine_systeme";
+$db_username = "xhnwemny_lspd_kleine_systeme";
+$db_userpassword = "H&7z3!zr0";
 
 
 #Datenbankverbindung lokal
