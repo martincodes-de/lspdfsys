@@ -2,21 +2,21 @@
 
 #Datenbankverbindung normal
 
-
+/*
 $db_host = "localhost";
 $db_name = "xhnwemny_lspd_kleine_systeme";
 $db_username = "xhnwemny_lspd_kleine_systeme";
 $db_userpassword = "H&7z3!zr0";
-
+*/
 
 #Datenbankverbindung lokal
 
-/*
+
 $db_host = "localhost";
 $db_name = "lspdfsys";
 $db_username = "root";
 $db_userpassword = "";
-*/
+
 
 $db_charset = "utf8";
 
@@ -36,6 +36,7 @@ require_once 'funktionen/einsaetze.php';
 require_once 'funktionen/daten.php';
 require_once "funktionen/durchsuchungen.php";
 require_once "funktionen/notizen.php";
+require_once "funktionen/zugang.php";
 
 # Andere Einstellungen
 
@@ -43,5 +44,7 @@ $copyright = "<small>LSPDFSYS © by SGT Martin Cooper | Department of Operations
 $aktuelles_datum = date("d.m.Y H:i");
 $automatische_loeschung_nach_tagen = 90;
 $einsatz_loeschen_passwort = "!e1nsatz#Cha0s";
+
+session_start();
 
 ?>

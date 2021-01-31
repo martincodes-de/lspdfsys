@@ -1,6 +1,7 @@
 <?php
 
 require_once("config.php");
+checkLogin();
 
 # Wenn keine ID angegeben wird, wird die Seite sofort gekillt.
 if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
