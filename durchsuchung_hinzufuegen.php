@@ -30,11 +30,13 @@ checkLogin();
 
       <h2>Durchsuchung hinzufügen</h2>
       <p>Fügen Sie eine durchsuchte Person zu einem Einsatz hinzu.</p>
+
       <div class="w3-panel w3-yellow">
         <h3>Information zu Fotos</h3>
         <p>Nutzen Sie für Fotos geeignete Speicherplattformen wie <a href="https://imgur.com" rel="noopener" target="_blank">Imgur</a>. Sollten Sie mehrere Fotos haben, können Sie dort auch eine Gallerie erstellen und den Link anschließend angeben.</p>
         <p>Fügen Sie niemals mehrere Links hintereinander in ein Eingabefeld, da diese sonst nicht korrekt aufgerufen werden können.</p>
       </div>
+
       <form class="w3-margin-bottom" method="post">
         <div class="w3-row-padding w3-stretch">
           <div class="w3-quarter">
@@ -62,7 +64,7 @@ checkLogin();
 
         <div class="w3-row-padding w3-stretch">
           <div class="w3-third">
-            <label>Beschlagnahmte Gegenstände <span class="w3-tag w3-hover-blue w3-light-blue w3-tiny" onclick="keineBeschlagnahmtenGegenstaende(this)">Keine Gegenstände beschlagnahmt</span></label>
+            <label>Beschlagnahmte Gegenstände <span class="w3-tag w3-blue w3-hover-light-blue w3-tiny" onclick="keineBeschlagnahmtenGegenstaende(this)">Keine Gegenstände beschlagnahmt</span></label>
             <textarea class="w3-input w3-border w3-light-grey" name="PersonBeschlagnahmteGegenstaende" rows="5" cols="80" placeholder="two number 9s, a number 9 large, a number 6 with extra dip, a number 7, two number 45s, one with cheese, and a large soda" required></textarea>
           </div>
 

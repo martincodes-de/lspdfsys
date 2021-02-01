@@ -23,7 +23,7 @@ checkLogin();
     <div class="w3-container">
       <h2>Changelog</h2>
       <p>Hier erhalten Sie Informationen über die neuesten Änderungen am LSPDFSYS.</p>
-      <p><b>31.01.2021: </b>Loginsystem hinzugefügt (Passwörter werden jeden Samstag, 22 Uhr geändert), Hilfsbuttons bei Durchsuchungseintragung farblich angepasst, Changelog hinzugefügt</p>
+      <p><b>31.01.2021: </b>Loginsystem hinzugefügt (Passwörter werden jeden Samstag, 22 Uhr geändert), Hilfbuttons bei Durchsuchungseintragung farblich angepasst, Changelog hinzugefügt, Durchsuchungen absofort teilw. bearbeitbar</p>
       <hr>
     </div>
     <!-- Footereinbindung -->
