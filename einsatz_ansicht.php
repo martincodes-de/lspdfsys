@@ -1,6 +1,7 @@
 <?php
 
 require_once("config.php");
+checkLogin();
 
 # Wenn keine ID angegeben wird, wird die Seite sofort gekillt.
 if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
@@ -32,6 +33,7 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
 
       <h2>Einsatzansicht</h2>
       <p>Hier finden Sie einen Einsatz und die jeweiligen Durchsuchungen und Notizen.</p>
+
       <form class="w3-margin-bottom">
         <div class="w3-row-padding w3-stretch">
           <div class="w3-quarter">
@@ -67,6 +69,7 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
               <th>Beschlagnahmte Gegenstände</th>
               <th>Weitere Informationen</th>
               <th>Fotos</th>
+              <th>Aktion</th>
             </tr>
             <?php foreach(alleDurchsuchungen($_GET["ID"]) as $durchsuchung): ?>
               <tr>
@@ -78,8 +81,11 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
                 <td>
                   <a href="<?php echo htmlspecialchars($durchsuchung['PersonFotoURL']); ?>" target="_blank" class="w3-btn w3-small w3-indigo">Person</a>
                   <?php if(!empty($durchsuchung["BeschlagnahmteGegenstaendeFotoURL"])): ?>
-                  <a href="<?php echo htmlspecialchars($durchsuchung['BeschlagnahmteGegenstaendeFotoURL']); ?>" target="_blank" class="w3-btn w3-small w3-indigo">Abgenommene Gegenstände</a>
+                    <a href="<?php echo htmlspecialchars($durchsuchung['BeschlagnahmteGegenstaendeFotoURL']); ?>" target="_blank" class="w3-btn w3-small w3-indigo">Gegenstände</a>
                   <?php endif; ?>
+                </td>
+                <td>
+                  <a href="durchsuchung_bearbeiten.php?ID=<?php echo htmlspecialchars($durchsuchung['ID']); ?>" class="w3-btn w3-small w3-blue">Bearbeiten</a>
                 </td>
               </tr>
             <?php endforeach; ?>

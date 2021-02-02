@@ -1,6 +1,7 @@
 <?php
 
 require_once("config.php");
+checkLogin();
 
 # Wenn keine ID angegeben wird, wird die Seite sofort gekillt.
 if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
@@ -39,7 +40,7 @@ if ((!isset($_GET["ID"])) || ($_GET["ID"] < 1)) {
       <p>Löschen Sie Einsätze und deren Daten, die nicht mehr benötigt werden. Dies kann nur von Offiziers- und Leitungsmitgliedern durchgeführt werden und benötigt zur Ausführung ein Passwort.</p>
       <form class="w3-margin-bottom" method="post">
         <label>Passwort</label>
-        <input class="w3-input w3-light-grey" name="LoeschPasswort" type="password" required>
+        <input class="w3-input w3-border w3-light-grey" name="LoeschPasswort" type="password" required>
         <br>
         <button class="w3-btn w3-block w3-red" type="submit" name="EinsatzLoeschen">Einsatz endgültig löschen</button>
       </form>

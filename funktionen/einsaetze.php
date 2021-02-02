@@ -41,6 +41,7 @@ function erhalteEinsatzWert($ID, $Spalte = "ID") {
   ];
 
   if (in_array($Spalte, $erlaubte_spalten)) {
+
     $stmt = $db->prepare("SELECT $Spalte FROM lspd_einsaetze WHERE ID = :id");
     $stmt->execute([
       "id" => $ID
@@ -55,6 +56,7 @@ function erhalteEinsatzWert($ID, $Spalte = "ID") {
     }
 
   } else {
+    
     return "Keine Daten gefunden - Eingabe überprüfen!";
   }
 

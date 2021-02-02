@@ -22,6 +22,38 @@ function durchsuchungHinzufuegen($EinsatzID, $PersonName, $PersonID, $PersonFoto
 
 }
 
+function erhalteDurchsuchungWert($Spalte, $ID) {
+
+  $erlaubte_spalten = [
+    "EinsatzID",
+    "PersonName",
+    "PersonID",
+    "PersonFotoURL",
+    "DurchsuchenderOfficer",
+    "BeschlagnahmteGegenstaende",
+    "BeschlagnahmteGegenstaendeFotoURL",
+    "WeitereInformationen"
+  ];
+
+  if (in_array($Spalte, $erlaubte_spalten)) {
+
+    GLOBAL $db;
+
+    $stmt = $db->prepare("SELECT $Spalte FROM lspd_durchsuchungen WHERE ID = :id");
+    $stmt->execute([
+      "id" => $ID
+    ]);
+
+    return $stmt->fetch()[0];
+
+  } else {
+
+    return "Keine Daten gefunden.";
+  }
+
+
+}
+
 function alleDurchsuchungen($EinsatzID) {
 
   global $db;
@@ -32,5 +64,20 @@ function alleDurchsuchungen($EinsatzID) {
   ]);
 
   return $stmt->fetchAll();
+
+}
+
+function durchsuchungBearbeiten($ID, $PersonBeschlagnahmteGegenstaendeFotoURL, $PersonWeitereInformationen) {
+
+  GLOBAL $db;
+
+  $stmt = $db->prepare("UPDATE lspd_durchsuchungen SET BeschlagnahmteGegenstaendeFotoURL = :neue_beschlagnahmtegegenstaendefotourl, WeitereInformationen = :neue_weitereinformationen WHERE ID = :id");
+  $stmt->execute([
+    "neue_beschlagnahmtegegenstaendefotourl" => $PersonBeschlagnahmteGegenstaendeFotoURL,
+    "neue_weitereinformationen" => $PersonWeitereInformationen,
+    "id" => $ID
+  ]);
+
+  return '<div class="w3-panel w3-green"><h3>Durchsuchung bearbeitet</h3><p>Die Durchsuchung erfolgreich bearbeitet. hinzugefügt. Seite wird in 3 Sekunden reloadet.</p></div><meta http-equiv="refresh" content="3">';
 
 }
