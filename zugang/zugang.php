@@ -2,10 +2,13 @@
 
 require_once("../config.php");
 
-$neuesLoginPasswort = erstelleZufaelligenString();
-$neuesEinsatzLoeschenPasswort = erstelleZufaelligenString();
-aktualisiereEinstellung("LoginPasswort", $neuesLoginPasswort);
-aktualisiereEinstellung("EinsatzLoeschenPasswort", $neuesEinsatzLoeschenPasswort);
+if ((isset($_GET["code"])) AND ($_GET["code"] == "ditlaeuft")) {
+  $neuesLoginPasswort = erstelleZufaelligenString();
+  $neuesEinsatzLoeschenPasswort = erstelleZufaelligenString();
+  aktualisiereEinstellung("LoginPasswort", $neuesLoginPasswort);
+  aktualisiereEinstellung("EinsatzLoeschenPasswort", $neuesEinsatzLoeschenPasswort);
+  echo "Zugangsdaten geändert.";
+}
 
 /*
 $mailEmpfaenger = "martin.schneider@techniknews.net, martin.schneider@freshmediacompany.de";

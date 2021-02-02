@@ -11,6 +11,7 @@ require_once("../config.php");
     <title>Zugänge für das LSPDFSYS</title>
   </head>
   <body>
+    <?php if((isset($_GET["code"])) AND ($_GET["code"] == "a34155841CB")): ?>
     <table>
       <tr>
         <th>LoginPasswort</th>
@@ -21,5 +22,6 @@ require_once("../config.php");
         <td><?php echo erhalteEinstellungWert("EinsatzLoeschenPasswort"); ?></td>
       </tr>
     </table>
+    <?php endif; ?>
   </body>
 </html>
