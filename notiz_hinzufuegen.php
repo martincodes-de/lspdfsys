@@ -48,7 +48,11 @@ checkLogin();
             <br><br>
 
             <label>Police Officer</label>
-            <input class="w3-input w3-border w3-light-grey" name="NotizAutor" type="text" placeholder="PD 23 Saltmueller" required>
+            <input class="w3-input w3-border w3-light-grey" id="NotizAutor" name="NotizAutor" type="text" placeholder="PD 23 Saltmueller" required>
+
+            <script type="text/javascript">
+              kennungEinsetzen("NotizAutor");
+            </script>
 
             <br>
 

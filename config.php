@@ -4,9 +4,9 @@
 
 
 $db_host = "localhost";
-$db_name = "x";
-$db_username = "x";
-$db_userpassword = "x";
+$db_name = "*";
+$db_username = "*";
+$db_userpassword = "*";
 
 
 #Datenbankverbindung lokal

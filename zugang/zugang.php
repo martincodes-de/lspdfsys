@@ -3,8 +3,8 @@
 require_once("../config.php");
 
 if ((isset($_GET["code"])) AND ($_GET["code"] == "ditlaeuft")) {
-  $neuesLoginPasswort = erstelleZufaelligenString();
-  $neuesEinsatzLoeschenPasswort = erstelleZufaelligenString();
+  $neuesLoginPasswort = erstelleZufaelligenString(8);
+  $neuesEinsatzLoeschenPasswort = erstelleZufaelligenString(8);
   aktualisiereEinstellung("LoginPasswort", $neuesLoginPasswort);
   aktualisiereEinstellung("EinsatzLoeschenPasswort", $neuesEinsatzLoeschenPasswort);
   echo "Zugangsdaten geändert.";
