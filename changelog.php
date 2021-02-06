@@ -23,7 +23,7 @@ checkLogin();
     <div class="w3-container">
       <h2>Changelog</h2>
       <p>Hier erhalten Sie Informationen über die neuesten Änderungen am LSPDFSYS.</p>
-      <p><b>06.02.2021: </b>"Passwort merken"-Funktion implementiert</p>
+      <p><b>06.02.2021: </b>Automatische "Passwort merken"-Funktion implementiert + Kennungsfunktion hinzugefügt (Funktioniert bei Durchsuchungen und Notizen)</p>
       <p><b>31.01.2021: </b>Loginsystem hinzugefügt (Passwörter werden täglich zwischen 5-6 Uhr geändert), Hilfsbuttons bei Durchsuchungseintragung farblich angepasst, Changelog hinzugefügt, Durchsuchungen absofort teilw. bearbeitbar (Foto der Gegenstände, Weitere Informationen)</p>
       <hr>
     </div>
