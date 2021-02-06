@@ -55,9 +55,13 @@ checkLogin();
           </div>
 
           <div class="w3-quarter">
-            <label>Durchsuchender Officer</label>
-            <input class="w3-input w3-border w3-light-grey" name="PersonDurchsuchenderOfficer" type="text" placeholder="PD 85 Mueller" required>
+            <label onclick=''>Durchsuchender Officer</label>
+            <input class="w3-input w3-border w3-light-grey" id="PersonDurchsuchenderOfficer" name="PersonDurchsuchenderOfficer" type="text" placeholder="PD 85 Mueller" required>
           </div>
+
+          <script type="text/javascript">
+            kennungEinsetzen("PersonDurchsuchenderOfficer");
+          </script>
         </div>
 
         <br>

@@ -56,7 +56,7 @@ if ((isset($_POST["Login"])) AND $_POST["Passwort"] == $login_passwort) {
       }
 
       if (localStorage.getItem("kennung") !== null && localStorage.getItem("kennung") != "") {
-        document.getElementById("kennung-eingabe").placeholder = 'Deine aktuelle Kennung ist "' + localStorage.getItem("kennung") + '" Gebe Sie erneut ein, um sie weiterhin zu verwenden.';
+        document.getElementById("kennung-eingabe").placeholder = 'Deine aktuelle Kennung ist "' + localStorage.getItem("kennung") + '" Gebe Sie erneut ein, um sie weiterhin zu verwenden oder nutze eine neue Kennung.';
       }
     </script>
 
